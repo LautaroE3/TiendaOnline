@@ -7,5 +7,11 @@ router.get("/", async (req, res, next) => {
     message: "The app is working properly!",
   });
 });
+router.get("/hola", async (req, res, next) => {
+  return res.status(200).json({
+    title: "Express Testing",
+    message: "The app is working properly!",
+  });
+});
 
 module.exports = router;
