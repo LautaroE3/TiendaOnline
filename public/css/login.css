@@ -5,9 +5,9 @@
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
 }
-.login{
+body{
     min-height: 100vh;
-    background: linear-gradient(to bottom, #5858d6, #948adb);
+    background: linear-gradient(to bottom, #d12121, #948adb);
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -19,7 +19,7 @@
     padding: 4rem;
     border-radius: 10px;
     position: relative;
-    margin-top: 33%;
+    margin-top: 23%;
 }
 .login-card::before{
     content: '';
@@ -34,7 +34,7 @@
     margin-bottom: 2rem;
 }
 .login-card-logo img{
-    width: 60px;
+    width: 90px;
 }
 .login-card-logo, .login-card-header{
     text-align: center;
@@ -50,8 +50,8 @@
     margin-bottom: 2rem;
 }
 .login-card-header h1{
-    font-size: 2rem;
-    font-weight: 600;
+    font-size: 1.5em;
+    font-weight: 500;
     margin-bottom: .5rem;
 }
 .login-card-header h1 + div{
