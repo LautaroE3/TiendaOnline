@@ -14,12 +14,15 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "bcrypt": "^5.1.0",
+    "body-parser": "^1.20.1",
     "bootstrap": "^5.2.3",
     "boxicons": "^2.1.4",
     "ejs": "^3.1.8",
     "express": "^4.17.3",
     "mongoose": "^6.8.2",
     "nodemon": "^2.0.15",
-    "path": "^0.12.7"
+    "path": "^0.12.7",
+    "validator": "^13.7.0"
   }
 }
