@@ -36,7 +36,4 @@ mongoose.connect(DbCredentials, {
 }) 
 .then((con) => {
     console.log("Conectado a la DB");
-    Admin.find({ apellido :1  }, (err, docs) => {
-        console.log(docs);
-      }); 
 });

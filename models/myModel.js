@@ -29,6 +29,20 @@ const Admin = new mongoose.Schema({
         minlength: 8,
         maxlength: 100,
         
+    },
+    carrito: {
+        type: Array,
+        required: [true, "Carrito"],
+        minlength: 8,
+        maxlength: 100,
+        
+    },
+    favoritos: {
+        type: Array,
+        required: [true, "Favoritos"],
+        minlength: 8,
+        maxlength: 100,
+        
     }
 
 });

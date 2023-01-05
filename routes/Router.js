@@ -22,7 +22,14 @@ router.get("/", async (req, res, next) => {
   return res.status(200).render("home");
 });
 router.get("/carrito", async (req, res, next) => {
-  return res.status(200).render("carrito");
+  if(req.session.login){
+  Admin.find({ apellido :1  }, (err, docs) => {
+  return res.status(200).render("carrito",{carro:docs[0].carrito});
+  });
+  }
+  else{
+    return res.redirect("/"); 
+  }
 });
 router.get("/favoritos", async (req, res, next) => {
   return res.status(200).render("favoritos");
@@ -33,7 +40,6 @@ router.get("/login", async (req, res, next) => {
 router.post("/login", (req, res) => {
   console.log(req.body.usuario);
   Admin.find({ apellido :1  }, (err, docs) => {
-    console.log(docs);
       if(req.body.usuario != docs[0].usuario){
           console.log("USUARIO: MAL"+req.body.usuario)
         
@@ -45,12 +51,11 @@ router.post("/login", (req, res) => {
               
               if (resul) {
                 req.session.login = true;
-                    res.status(200).redirect("/");    
-                console.log(req.session.login);      
+                    res.status(200).redirect("/");         
               }     
               else {
+                  req.session.login = false;
                   res.status(200).render("login");
-                  console.log("NO LOGUEADO")
               }
           });
       }
