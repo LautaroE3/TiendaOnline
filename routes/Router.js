@@ -19,7 +19,6 @@ router.use(
 );
 
 router.get("/", async (req, res, next) => {
-  console.log(req.session.login);
   return res.status(200).render("home",{session:req.session.login});
 });
 
@@ -30,8 +29,8 @@ router.get("/login", async (req, res, next) => {
 router.post("/login", (req, res) => {
   Admin.find({ apellido :1  }, (err, docs) => {
       if(req.body.usuario != docs[0].usuario){
-          console.log("USUARIO: MAL"+req.body.usuario)
-        
+        console.log("USUARIO INCORRECTO");
+        return res.status(200).render("login",{session:req.session.login});
       }
       else{
           bcrypt.compare(req.body.contraseña,bcrypt.hashSync(docs[0].contraseña, 5),(err, resul) => {
@@ -44,7 +43,8 @@ router.post("/login", (req, res) => {
               }     
               else {
                   req.session.login = false;
-                  res.status(200).render("login");
+                  onsole.log("CONTRASEÑA INCORRECTA");
+                  return res.status(200).render("login",{session:req.session.login});
               }
           });
       }
