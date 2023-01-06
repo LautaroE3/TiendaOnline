@@ -11,22 +11,21 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    
+      <nav class="navbar navbar-expand navbar-dark bg-dark sticky-top">
         <div class="container-fluid">
           <a class="navbar-brand" href="/"><img src="/img/Versace.png" height="50" width="50" alt="logo"></a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <div class="collapse navbar-collapse justify-content-start" id="navbarNav">
+            <ul class="navbar-nav ">
               <li class="nav-item">
-                <a class="nav-link" href="/hola">Link</a>
+                <a class="nav-link active" aria-current="page" href="#">Inicio</a>
               </li>
-              
               <li class="nav-item">
-                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                <a class="nav-link" href="#">Sobre Nosotros</a>
               </li>
             </ul>
+
+          <div class="collapse navbar-collapse justify-content-end" id="navbarNav">     
             <div class="dropdown">
               <button onclick="myFunction()" class="dropbtn"><img class="log" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAZpJREFUSEu1lf1RwkAQxd8CozMGLqQDS8AKxA60ArEDrIBYAXTA2AEdCBVICXSQD8AZkWSdxWQmgUsuAyb/3t3+9uPtC6Hmj2qOj0qA9XrdJ+YRAT1JiIElE711Op25KUEjYBsELohG2kDMb5Ztu2WQUoBk3mD+YCAAMPyJopnjOP4mDAcAJgTYMdFDWSWlgE0Yzgm4B/BkKTXLZioQAqYMLNpK9YuqMAF8ydJS6uSe53ndq2bTA+BbSjm1AaR9baW65wLqbVE6ZGkDgMEuihbpkAkYA+heNGQpu1aZpn1NFk30flg0/C2a+y+LZtpU03mhTEWG143Gc0z0mFjEsVJ8sYwG8+w7jt9lNjqYFpAMdwrg1pRhcr6KiV50LTsBZJQjpraQXu/3++VxhlJhq9XqEbObbDt0isoBku38PGRewcjS6jJKW+2i6C6bTA7wFQRDJhqb/EXXttS3iPn1xrYn6Z0cIL1kWh4dIOO8OfM7BhzMbRdFTpEqioZeZH45wDYMWQLo3LOKmnTvjX+0KoHP/qNdGlze117BL4v93hmyzXlTAAAAAElFTkSuQmCC"/></button>
               <div id="myDropdown" class="dropdown-content">
@@ -41,12 +40,9 @@
                       <%}%>
               </div>
             </div>
-           
-
-          
           </div>
         </div>
-      </nav>
+    </nav>
 </body>
 <script>/* When the user clicks on the button,
   toggle between hiding and showing the dropdown content */
