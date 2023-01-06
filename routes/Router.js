@@ -19,26 +19,15 @@ router.use(
 );
 
 router.get("/", async (req, res, next) => {
-  return res.status(200).render("home");
+  console.log(req.session.login);
+  return res.status(200).render("home",{session:req.session.login});
 });
-router.get("/carrito", async (req, res, next) => {
-  if(req.session.login){
-  Admin.find({ apellido :1  }, (err, docs) => {
-  return res.status(200).render("carrito",{carro:docs[0].carrito});
-  });
-  }
-  else{
-    return res.redirect("/"); 
-  }
-});
-router.get("/favoritos", async (req, res, next) => {
-  return res.status(200).render("favoritos");
-});
+
 router.get("/login", async (req, res, next) => {
-  return res.status(200).render("login");
+  return res.status(200).render("login",{session:req.session.login});
 });
+
 router.post("/login", (req, res) => {
-  console.log(req.body.usuario);
   Admin.find({ apellido :1  }, (err, docs) => {
       if(req.body.usuario != docs[0].usuario){
           console.log("USUARIO: MAL"+req.body.usuario)
@@ -60,6 +49,35 @@ router.post("/login", (req, res) => {
           });
       }
   }); 
+});
+
+router.get("/cerrarsesion", async (req, res, next) => {
+  if(req.session.login){
+    req.session.login = false;
+    res.status(200).redirect("/");  
+  }
+});
+
+router.get("/carrito", async (req, res, next) => {
+  if(req.session.login){
+  Admin.find({ apellido :1  }, (err, docs) => {
+  return res.status(200).render("carrito",{carro:docs[0].carrito,session:req.session.login});
+  });
+  }
+  else{
+    return res.status(200).render("carrito",{carro:"No hay productos en tu carrito",session:req.session.login});
+  }
+});
+
+router.get("/favoritos", async (req, res, next) => {
+  if(req.session.login){
+    Admin.find({ apellido :1  }, (err, docs) => {
+    return res.status(200).render("favoritos",{favoritos:docs[0].favoritos,session:req.session.login});
+    });
+    }
+    else{
+      return res.status(200).render("favoritos",{favoritos:"No hay productos en favoritos",session:req.session.login});
+    }
 });
 
 module.exports = router;
